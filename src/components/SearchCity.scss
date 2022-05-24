@@ -1,0 +1,30 @@
+.searchCities{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    position: fixed;
+   left: 500px;
+    .cities{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    }
+    .cities::-webkit-scrollbar {
+        display: none;
+        width: 10px;
+        background-color: lightblue;
+    }
+    .cities:hover::-webkit-scrollbar {
+        display: initial;  
+      }
+    .cities::-webkit-scrollbar-thumb {
+        background-color: #09C;
+      }
+}
+
+.inputSearch{
+    border:1px solid;
+    border-radius: 5px;
+    outline: none;
+}

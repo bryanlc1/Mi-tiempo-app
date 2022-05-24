@@ -1,9 +1,12 @@
 import React from "react"
+
+import SearchCity from "./components/SearchCity";
+
 function App() {
   return (
-    <div className="App">
-    <h1>hola a todos</h1>
-    </div>
+    <>
+    <SearchCity/>
+    </>
   )
 }
 
