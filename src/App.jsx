@@ -1,11 +1,14 @@
 import React from "react"
 
 import SearchCity from "./components/SearchCity";
+import { TiempoProvider } from './context/tiempo'
 
 function App() {
   return (
     <>
-    <SearchCity/>
+      <TiempoProvider>
+        <SearchCity />
+      </TiempoProvider>
     </>
   )
 }
