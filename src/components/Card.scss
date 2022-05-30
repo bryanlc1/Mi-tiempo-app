@@ -1,0 +1,78 @@
+.cardi{
+    margin: 100px 0 0 0;
+}
+
+.contIcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .icon{
+        width: 80px;
+        height: 70px;
+        box-shadow: 0px 1px 6px #373c4054;
+        background-color: rgb(232 234 243);
+        border-radius: 20px;
+    }
+    
+}
+
+.temperatures{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.hours{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightskyblue;
+    border-radius: 10px;
+    width: 200px;
+    align-items: center;
+}
+
+.contHours{
+    display: flex;
+    justify-content: space-around;
+}
+
+.dia{
+   border: 1px solid red;
+   margin: 50px 0 0 0;
+}
+
+.cardAllDays{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: lightskyblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .hours{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 5px;
+       background-color: lightskyblue;
+        border-radius: 10px;
+        margin: 0px 20px 0 0 ;
+        width: 100px;
+        align-items: center;
+    }
+    
+    .contHours{
+        display: -webkit-box;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

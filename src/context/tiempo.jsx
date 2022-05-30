@@ -2,14 +2,15 @@ import { createContext } from 'react'
 import {useEffect, useState, useContext} from 'react'
 
 
-const tiempoContext = createContext();
+const tiempoContext = createContext({});
 
 export const TiempoProvider = ({children}) => {
-    const [citySelected,setCitySelected] = useState({});
+    const [citySelected,setCitySelected] = useState();
 
-    console.log('selecionadaaa',citySelected)
+    const [days,setDays] = useState([]);
+
     return (
-        <tiempoContext.Provider value={{citySelected, setCitySelected}}>
+        <tiempoContext.Provider value={{citySelected, setCitySelected,days,setDays}}>
             {children}
         </tiempoContext.Provider>
     )
