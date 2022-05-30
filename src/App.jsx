@@ -11,8 +11,6 @@ import './App.scss'
 
 function App() {
   
-const {citySelected} = useTiempo();
-
 return (
     <>
       <TiempoProvider>

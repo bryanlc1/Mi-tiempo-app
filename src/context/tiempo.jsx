@@ -5,7 +5,7 @@ import {useEffect, useState, useContext} from 'react'
 const tiempoContext = createContext({});
 
 export const TiempoProvider = ({children}) => {
-    const [citySelected,setCitySelected] = useState({});
+    const [citySelected,setCitySelected] = useState();
     const [days,setDays] = useState([]);
 
     return (

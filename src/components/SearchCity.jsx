@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Col, Row, Stack } from "react-bootstrap";
+import {useState } from "react";
 import useTiempo from "../hooks/useTiempo";
 import './SearchCity.scss'
 export default () => {
@@ -8,7 +7,7 @@ export default () => {
     const [city, setCity] = useState();
     const [results, setResults] = useState();
 
-    const { citySelected, setCitySelected } = useTiempo();
+    const {setCitySelected } = useTiempo();
 
     const getCity = async (event) => {
         setCity(event?.target.value);
