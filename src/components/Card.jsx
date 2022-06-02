@@ -10,6 +10,7 @@ export default () => {
 
     const { citySelected, days, setDays } = useTiempo();
     const urlIcon = "http://openweathermap.org/img/wn/";
+    console.log(citySelected)
 
     const daysWeek = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
 
@@ -57,15 +58,16 @@ export default () => {
         current.filter((current) => current.dt_txt.substring(11, 13) === "15" || current.dt_txt.substring(11, 13) === "03")
     )
 
+    console.log(searchDayandNigth)
     const allDays = searchDayandNigth.map((current, index) =>
         <Col key={index} className="cardAllDays" xs={12} >
             <span>{current[0].dt_txt.substring(0, 10)}</span>
             <span>
-                <img src={`${urlIcon}${current[0].weather[0].icon}.png`} /> /
-                <img src={`${urlIcon}${current[1].weather[0].icon}.png`} />
+                <img src={`${urlIcon}${current[0]?.weather[0].icon}.png`} /> /
+                <img src={`${urlIcon}${current[1]?.weather[0].icon}.png`} />
             </span>
-            <span>{`${(current[0].main.temp_min - 273.15).toFixed(1)} ºC`} /
-                {`${(current[1].main.temp_max - 273.15).toFixed(1)} ºC`}
+            <span>{`${(current[0]?.main.temp_min - 273.15).toFixed(1)} ºC`} /
+                {`${(current[1]?.main.temp_max - 273.15).toFixed(1)} ºC`}
             </span>
         </Col>
     )
