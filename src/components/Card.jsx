@@ -46,7 +46,7 @@ export default () => {
     }
 
     const hoursCurrentDay = days[0]?.map((current, indx) =>
-        <div className="hours" key={indx} item={current} setFunction={() => console.log('hola')}>
+        <div className="hours" key={indx} item={current}>
             <span>{current.dt_txt.substring(11, 16)}</span>
             <img src={`${urlIcon}${current.weather[0].icon}.png`} />
             <span>{`${(current.main.temp - 273.15).toFixed(1)} ºC`}</span>
