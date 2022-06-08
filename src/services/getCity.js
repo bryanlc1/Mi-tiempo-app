@@ -6,7 +6,6 @@ export const getCityBytext = async (city)=>{
         let { data } = await axios.get(url)
     return [data]
     } catch (error) {
-        console.log(error)
     return []
     }
 }
