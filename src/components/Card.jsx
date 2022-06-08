@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { Col, Row, Stack } from "react-bootstrap";
 import { FaMapMarkerAlt, FaCalendarAlt } from "react-icons/fa";
+import { getDaysofWeek } from "../services";
 
 import useTiempo from "../hooks/useTiempo";
 import './Card.scss'
@@ -9,13 +9,8 @@ import './Card.scss'
 export default () => {
 
     const { citySelected, days, setDays } = useTiempo();
-
     const urlIcon = "http://openweathermap.org/img/wn/";
     const daysWeek = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
-
-    useEffect(() => {
-        thedays();
-    }, [citySelected]);
 
     const today = new Date();
     const data = {
@@ -27,24 +22,6 @@ export default () => {
         minutes: today.getMinutes()
     }
 
-    const thedays = async () => {
-        let { data } = await axios.get(`${import.meta.env.VITE_APP_SEARCH_DAYS}${citySelected?.id}&appid=${import.meta.env.VITE_APP_KEY_2}`);
-        let temporary = [];
-        let newdays = [];
-        let currentDay = data.list[0].dt_txt.substring(7, 10);
-
-        for (let i = 0; i < data.list.length; i++) {
-            if (currentDay === data.list[i].dt_txt.substring(7, 10)) {
-                temporary = [...temporary, data.list[i]];
-            } else {
-                newdays.push(temporary);
-                temporary = [];
-                currentDay = data.list[i].dt_txt.substring(7, 10);
-            }
-        }
-        setDays(newdays);
-    }
-
     const hoursCurrentDay = days[0]?.map((current, indx) =>
         <div className="hours" key={indx} item={current}>
             <span>{current.dt_txt.substring(11, 16)}</span>
@@ -54,8 +31,8 @@ export default () => {
     )
 
     const searchDayandNigth = days.map((current) =>
-    current.filter((current) =>current.dt_txt.substring(8, 10) !== data.day &&  current.dt_txt.substring(11, 13) === "15"|| current.dt_txt.substring(11, 13) === "03")
-)
+        current.filter((current) =>current.dt_txt.substring(8, 10) !== data.day &&  current.dt_txt.substring(11, 13) === "15"|| current.dt_txt.substring(11, 13) === "03")
+    )
 
     const allDays = searchDayandNigth.filter((current)=> current.length !== 0).map((current, index) =>
     current &&
@@ -70,6 +47,13 @@ export default () => {
             </span>
         </Col>
     )
+
+    useEffect(() => {
+        getDaysofWeek(citySelected)
+        .then((data)=>{
+            setDays(data);
+         })
+    }, [citySelected]);
 
     return (
         citySelected
