@@ -2,15 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px 0 80px 0;
     .cities{
     overflow: auto;
     display: flex;
     flex-direction: column;
-    border-bottom-left-radius: 5px;
     border-bottom:10px ;
+    margin-top: -20px;
+    padding-top: 10px;
+    border-bottom-left-radius:  20px;
+    border-bottom-right-radius:  20px;
     color: white;
-    background-color: #b0ccea;
+    background-color: #b0cceaa6;
     }
     .cities::-webkit-scrollbar {
         display: none;
@@ -38,6 +40,7 @@
 .inputCities{
     min-width: 300px;
     position: fixed;
+    margin: 20px;
 }
 
 .itemCity{

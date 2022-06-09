@@ -59,7 +59,7 @@ export default () => {
         citySelected
         &&
         <>
-            <Stack gap={4}>
+            <Stack gap={4} className='contCard'>
                 <Row className="cardi">
                     <Col xs={9} md={9}>
                         <h1>{`${(citySelected.main.temp - 273.15).toFixed(1)} ºC`}</h1>
